@@ -14,8 +14,7 @@
 <br/><br/>
 
 ## API’s
-    Weather - https://openweathermap.org/api,  or https://www.metaweather.com/api/  
-    Flight Price, Hotel Price, Rental Vehicle  - https://developers.expediagroup.com/  
+   
 
 
 <br/><br/>
