@@ -1,44 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel Planner</title>
-    <link
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Travel Planner</title>
+		<link
 			rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.1/css/bulma.min.css"
 			integrity="sha512-ZRv40llEogRmoWgZwnsqke3HNzJ0kiI0+pcMgiz2bxO6Ew1DVBtWjVn0qjrXdT3+u+pSN36gLgmJiiQ3cQtyzA=="
 			crossorigin="anonymous"
-        />
-        <script
-        src="https://kit.fontawesome.com/3ea7a994a9.js"
-        crossorigin="anonymous"
-    ></script>
-    <link rel="stylesheet" href="./assets/css/style.css">
-</head>
-<body>
-    <header class="container"><h1>Header</h1>
-    </header>
-    <main class="container">
-        <!-- left side menu -->
-        <aside>
-            <form>
-                <label for=""></label>
-                <input type="text" />
-                <button class="button"></button>
-            </form>
-        </aside>
-        <!-- main body section -->
-        <section>
-            <!-- weather section -->
-            <div></div>
-            <!-- exchange rate -->
-            <div></div>
-            <!-- restaurant section -->
-            <div></div>
-        </section>
-    </main>
-    <footer><h1>Footer</h1></footer>
-    <script src="./assets/js/index.js"></script>
-</body>
+		/>
+		<script
+			src="https://kit.fontawesome.com/3ea7a994a9.js"
+			crossorigin="anonymous"
+		></script>
+		<link rel="stylesheet" href="./assets/css/style.css" />
+	</head>
+	<body>
+		<header class="container.is-widescreen has-background-success m-4 p-4">
+			<h1>Header</h1>
+		</header>
+		<main class="container.is-widescreen m-4">
+			<div class="columns">
+				<!-- left side menu -->
+				<aside class="column is-one-quarter m-4">
+					<form>
+						<label for="city">Enter a city name</label>
+						<input class="input" type="text" name="city" />
+						<button class="button">GO</button>
+					</form>
+				</aside>
+				<!-- main body section -->
+				<section class="column has-background-light m-4">
+					<!-- weather section -->
+					<div><h1>Main</h1></div>
+					<!-- exchange rate -->
+					<div class="tile is-ancestor" id="exchange-rate">
+						<div class="tile is-child box">
+							<p class="title">The Exchange Rate</p>
+						</div>
+					</div>
+					<!-- restaurant section -->
+					<div></div>
+				</section>
+			</div>
+		</main>
+		<footer class="footer m-4 has-background-success-light"><h1>Footer</h1></footer>
+		<script src="./assets/js/index.js"></script>
+	</body>
 </html>
