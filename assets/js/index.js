@@ -1,12 +1,13 @@
 //global variables
-var inputCity;
+
 
 //input section
 $('#input-button').on('click', function (event) {
     event.preventDefault();
-    inputCity = $('input').val();
+    var inputCity = $('input').val();
     $('input').val("");
     console.log(inputCity);
+    getWeatherData(inputCity);
 
 
 
@@ -14,13 +15,16 @@ $('#input-button').on('click', function (event) {
 
 //weather section
 function getWeatherData(city) {
+//console.log(city);
+
+//renderWeatherData(response);
 
 }
 
 //render weather on page
-function getWeatherData(city) {
+// function renderWeatherData(response) {
 
-}
+// }
 
 
 
