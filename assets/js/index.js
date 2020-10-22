@@ -43,13 +43,33 @@ function getWeatherForecast(lon, lat) {
     })
         .then(function (res) {
             console.log(res);
+            // 7-day forecast
+
+            for (var i = 0; i < 7; i++) {
+                
+                
+            }
+            console.log(res.daily[0]);
+            console.log(dayjs.unix(res.daily[0].dt).format('MM/DD/YYYY'));
+            console.log(toF(res.daily[0].temp.max));
+            console.log(toF(res.daily[0].temp.min));
+            console.log(res.daily[0].weather[0].description);
+            console.log(res.daily[0].weather[0].icon);
         })
 }
 
-//render weather on page
-// function renderWeatherData(response) {
+function toF(k) {
+    var f = (k - 273.15) * 9 / 5 + 32;
+    return f.toFixed();
+}
 
-// }
+function renderWeatherData(response) {
+
+}
+
+function clearWeatherData(params) {
+    
+}
 
 
 
