@@ -23,16 +23,27 @@ function getCurrentWeatherData(city) {
         method: "GET"
     })
         .then(function (res) {
-            console.log(res.coord.Lon);
-            var lon = res.coord.Lon;
-            var lat = res.coord.Lat;
-            console.log(lon);
-            console.log(lat);
+            //console.log(res.coord);
+            var lon = res.coord.lon;
+            var lat = res.coord.lat;
+            getWeatherForecast(lon, lat);
 
         })
 
     //renderWeatherData(response);
 
+}
+
+function getWeatherForecast(lon, lat) {
+    var queryURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=current,minutely,hourly,alerts&appid=16e2a29d08bf4766fcdb6563c3920b3d";
+
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    })
+        .then(function (res) {
+            console.log(res);
+        })
 }
 
 //render weather on page
