@@ -79,6 +79,29 @@ function toF(k) {
 
 
 //exchange rate section
+//function tripadvisory(){
+    var queryURL = "https://www.travel-advisory.info/api"
+
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    })
+//}
+
+const settings = {
+	"async": true,
+	"crossDomain": true,
+	"url": "https://rapidapi.p.rapidapi.com/api/countries/US",
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-host": "travel-hacking-tool.p.rapidapi.com",
+		"x-rapidapi-key": "89701e5d1amshdd9297133bad4e3p160225jsn0869b9ec377f"
+	}
+};
+
+$.ajax(settings).done(function (response) {
+	console.log(response);
+});
 
 
 //resaurant section
