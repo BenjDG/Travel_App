@@ -44,17 +44,26 @@ function getWeatherForecast(lon, lat) {
         .then(function (res) {
             console.log(res);
             // 7-day forecast
+            
+            $('#weather').empty();
 
             for (var i = 0; i < 7; i++) {
+                $divParent = $('<div>');
+                $date = $('<div>').html(dayjs.unix(res.daily[i].dt).format('MM/DD/YYYY'));
+                $highTemp = $('<div>').html(toF(res.daily[i].temp.max) + "&#8457");
+                $lowTemp = $('<div>').html(toF(res.daily[i].temp.min) + "&#8457");
+                $description = $('<div>').html(res.daily[i].weather[0].description);
+                $image = $('<img>').attr('src', 'http://openweathermap.org/img/wn/' + res.daily[i].weather[0].icon + '@2x.png');
                 
-                
+                $divParent.append($date, $highTemp, $lowTemp, $description, $image);
+                $('#weather').append($divParent);
             }
-            console.log(res.daily[0]);
-            console.log(dayjs.unix(res.daily[0].dt).format('MM/DD/YYYY'));
-            console.log(toF(res.daily[0].temp.max));
-            console.log(toF(res.daily[0].temp.min));
-            console.log(res.daily[0].weather[0].description);
-            console.log(res.daily[0].weather[0].icon);
+            // console.log(res.daily[0]);
+            // console.log(dayjs.unix(res.daily[0].dt).format('MM/DD/YYYY'));
+            // console.log(toF(res.daily[0].temp.max));
+            // console.log(toF(res.daily[0].temp.min));
+            // console.log(res.daily[0].weather[0].description);
+            // console.log(res.daily[0].weather[0].icon);
         })
 }
 
@@ -63,13 +72,9 @@ function toF(k) {
     return f.toFixed();
 }
 
-function renderWeatherData(response) {
-
-}
-
-function clearWeatherData(params) {
-    
-}
+// function clearWeatherData() {
+//     $('#weather').empty();
+// }
 
 
 
