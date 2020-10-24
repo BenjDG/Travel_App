@@ -12,12 +12,7 @@ $('#input-button').on('click', function (event) {
 
 
 });
-//weather carousel
-bulmaCarousel.attach('#slider', {
-    slidesToScroll: 1,
-    slidesToShow: 1,
-    infinite: true
-  });
+
 
 //weather section
 function getCurrentWeatherData(city) {
@@ -50,29 +45,33 @@ function getWeatherForecast(lon, lat) {
         .then(function (res) {
             console.log(res);
             // 7-day forecast
-            
-            $('#weather').empty();
-//construct carousel
-$section = $();
 
+            $('#weather').empty();
+            //construct carousel
+            $section = $('<section>').attr('class', 'section');
+            $divContainer = $('<div>').attr('class', 'container is-clipped');
+            $divCarousel = $('<div>').attr('id', 'slider');
+            $('#weather').append($section);
+            $section.append($divContainer)
+            $divContainer.append($divCarousel);
 
 
 
             for (var i = 0; i < 7; i++) {
-                $divParent = $('<div>').attr('class', 'weather-box');
+                $divParent = $('<div>').attr('class', 'item-' + (i + 1));
                 $date = $('<div>').html(dayjs.unix(res.daily[i].dt).format('MM/DD/YYYY'));
                 $highTemp = $('<div>').html(toF(res.daily[i].temp.max) + "&#8457");
                 $lowTemp = $('<div>').html(toF(res.daily[i].temp.min) + "&#8457");
                 $description = $('<div>').html(res.daily[i].weather[0].description);
                 $image = $('<img>').attr('src', 'http://openweathermap.org/img/wn/' + res.daily[i].weather[0].icon + '@2x.png');
-                
+
                 $divParent.append($date, $highTemp, $lowTemp, $description, $image);
-                $('#weather').append($divParent);
-                
+                $divCarousel.append($divParent);
+
             }
-            
+
         })
-        .then(function() {
+        .then(function () {
             window.location = "#page2";
         })
 }
@@ -81,6 +80,13 @@ function toF(k) {
     var f = (k - 273.15) * 9 / 5 + 32;
     return f.toFixed();
 }
+
+//weather carousel
+bulmaCarousel.attach('#slider', {
+    slidesToScroll: 2,
+    slidesToShow: 1,
+    infinite: true
+});
 
 // function clearWeatherData() {
 //     $('#weather').empty();
@@ -95,23 +101,23 @@ function initMap() {
     const uluru = { lat: -25.344, lng: 131.036 };
     // The map, centered at Uluru
     const map = new google.maps.Map(document.getElementById("map"), {
-      zoom: 4,
-      center: uluru,
+        zoom: 4,
+        center: uluru,
     });
     // The marker, positioned at Uluru
     const marker = new google.maps.Marker({
-      position: uluru,
-      map: map,
-    }); 
-
- 
+        position: uluru,
+        map: map,
+    });
 
 
- // $('#map').empty();
-  //for(var i = 0; i > 7; i++){
+
+
+    // $('#map').empty();
+    //for(var i = 0; i > 7; i++){
     //  $divParent = $("<div>");
     //  $("#map").append($divParent);
-  //}
+    //}
 }
 
 
