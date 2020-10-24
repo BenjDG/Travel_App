@@ -48,7 +48,7 @@ function getWeatherForecast(lon, lat) {
             $('#weather').empty();
 
             for (var i = 0; i < 7; i++) {
-                $divParent = $('<div>');
+                $divParent = $('<div>').attr('class', 'weather-box');
                 $date = $('<div>').html(dayjs.unix(res.daily[i].dt).format('MM/DD/YYYY'));
                 $highTemp = $('<div>').html(toF(res.daily[i].temp.max) + "&#8457");
                 $lowTemp = $('<div>').html(toF(res.daily[i].temp.min) + "&#8457");
