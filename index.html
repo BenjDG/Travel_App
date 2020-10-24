@@ -17,71 +17,64 @@
 		<link rel="stylesheet" href="./assets/css/style.css" />
 	</head>
 	<body>
-		<!-- <header
-			class="container.is-widescreen has-background-light has-text-centered m-4 p-4"
-		>
-			<h1 class="is-size-1">Header</h1>
-		</header> -->
 		<main class="container.is-widescreen content">
-				<section class="hero is-dark is-fullheight is-bold">
-					<div class="hero-body">
-					  <div class="container">
+			<section class="hero is-dark is-fullheight is-bold">
+				<div class="hero-body">
+					<div class="container">
 						<h1 class="title is-large has-text-centered">
 							Enter a city name
 						</h1>
-						<form class="field has-addons">
+						<form class="field">
 							<input
 								id="input-city-name"
 								class="input is-rounded is-large"
 								type="text"
 								name="city"
 							/>
-							<button id="input-button" class="button is-rounded is-large">GO</button>
+							<button
+								id="input-button"
+								class="button is-rounded is-large"
+							>
+								<i class="fas fa-search"></i>
+							</button>
 						</form>
-					  </div>
 					</div>
-				  </section>
-				<!-- main body section -->
+				</div>
+			</section>
+			<!-- main body section -->
+			<!-- weather section -->
+			<section class="hero is-light is-fullheight is-bold">
+				<div class="hero-body">
+					<div class="container">
+						<h1 class="title">Weather Section</h1>
+						<div id="weather"></div>
+					</div>
+				</div>
+			</section>
 
-					<!-- weather section -->
+			<!-- exchange rate section -->
+			<section class="hero is-dark is-fullheight is-bold">
+				<div class="hero-body">
+					<div class="container">
+						<h1 class="title">Exchange Rate</h1>
+						<div id="exchange-rate"></div>
+					</div>
+				</div>
+			</section>
 
-					<section class="hero is-light is-fullheight is-bold">
-						<div class="hero-body">
-						  <div class="container">
-							<h1 class="title">
-								Weather Section
-							</h1>
-								<div id="weather"></div>
-						  </div>
-						</div>
-					  </section>
-
-					  <!-- exchange rate section -->
-					  <section class="hero is-dark is-fullheight is-bold">
-						<div class="hero-body">
-						  <div class="container">
-							<h1 class="title">
-								Exchange Rate
-							</h1>
-							<div id ="exchange-rate"></div>
-						</div>
-					  </section>
-
-<!-- restaurant section -->
-					  <section class="hero is-light is-fullheight is-bold">
-						<div class="hero-body">
-						  <div class="container">
-							<h1 class="title">
-								Restaurants
-							</h1>
-								<div id="restaurants"></div>
-						  </div>
-						</div>
-					  </section>
-
-			</div>
+			<!-- restaurant section -->
+			<section class="hero is-light is-fullheight is-bold">
+				<div class="hero-body">
+					<div class="container">
+						<h1 class="title">Restaurants</h1>
+						<div id="restaurants"></div>
+					</div>
+				</div>
+			</section>
 		</main>
-		<footer class="container.is-widescreen has-background-dark has-text-centered m-4 p-4">
+		<footer
+			class="container.is-widescreen has-background-dark has-text-centered m-4 p-4"
+		>
 			<h1>Footer</h1>
 		</footer>
 		<script
@@ -90,7 +83,13 @@
 			crossorigin="anonymous"
 		></script>
 		<!-- day.js framework -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.9.3/dayjs.min.js" integrity="sha512-u7elBfdMr+7LhU4rvUk3IM28QZDKTyUxba4Nx2IJ1W9cj4shfRSPq7EZXD2ULD9cBoizw2FQyeR6YBog6LcnHg==" crossorigin="anonymous"></script>
+
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.9.3/dayjs.min.js"
+			integrity="sha512-u7elBfdMr+7LhU4rvUk3IM28QZDKTyUxba4Nx2IJ1W9cj4shfRSPq7EZXD2ULD9cBoizw2FQyeR6YBog6LcnHg=="
+			crossorigin="anonymous"
+		></script>
+
 		<script src="./assets/js/index.js"></script>
 	</body>
 </html>
