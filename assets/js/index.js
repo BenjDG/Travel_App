@@ -8,7 +8,7 @@ $('#input-button').on('click', function (event) {
     $('input').val("");
     console.log(inputCity);
     getCurrentWeatherData(inputCity);
-
+    
 
 
 });
@@ -57,8 +57,12 @@ function getWeatherForecast(lon, lat) {
                 
                 $divParent.append($date, $highTemp, $lowTemp, $description, $image);
                 $('#weather').append($divParent);
+                
             }
             
+        })
+        .then(function() {
+            window.location = "#page2";
         })
 }
 

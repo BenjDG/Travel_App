@@ -1,15 +1,29 @@
+body{
+  font-family: 'Cinzel', serif;
+}
+
+h1{
+  font-size: 7rem !important;
+  font-family: 'Cinzel', serif;
+  font-weight: 400 !important;
+  color: white !important;
+  margin-bottom: 0 !important;
+}
+
 .field {
   position: relative;
 }
+
 button {
   position: absolute !important;
   right:0;
   top: 0;
 }
+
 a{
   color: inherit;
-  
 }
+
 a:hover {
   transform: scale(1.5, 1.5);
 }
