@@ -17,41 +17,71 @@
 		<link rel="stylesheet" href="./assets/css/style.css" />
 	</head>
 	<body>
-		<header
-			class="container.is-widescreen has-background-success has-text-centered m-4 p-4"
+		<!-- <header
+			class="container.is-widescreen has-background-light has-text-centered m-4 p-4"
 		>
 			<h1 class="is-size-1">Header</h1>
-		</header>
+		</header> -->
 		<main class="container.is-widescreen m-4 content">
-			<div class="columns">
-
-                
-				<!-- left side menu -->
-				<aside class="column is-one-quarter m-4">
-                    <label for="city">Enter a city name</label>
+				<section class="hero is-dark is-fullheight is-bold">
+					<div class="hero-body">
+					  <div class="container">
+						<h1 class="title is-large has-text-centered">
+							Enter a city name
+						</h1>
 						<form class="field has-addons">
 							<input
 								id="input-city-name"
-								class="input"
+								class="input is-rounded is-large"
 								type="text"
 								name="city"
 							/>
-							<button id="input-button" class="button">GO</button>
+							<button id="input-button" class="button is-rounded is-large">GO</button>
 						</form>
-				</aside>
+					  </div>
+					</div>
+				  </section>
 				<!-- main body section -->
-				<section class="column has-background-light m-4">
+
 					<!-- weather section -->
-					<h1>Weather Section</h1>
-					<div id="weather"></div>
-					<!-- exchange rate -->
-					<div id ="exchange-rate"><h1>Exchange Rate</h1></div>
-					<!-- restaurant section -->
-					<div><h1>Restaurants</h1></div>
-				</section>
+
+					<section class="hero is-light is-fullheight is-bold">
+						<div class="hero-body">
+						  <div class="container">
+							<h1 class="title">
+								Weather Section
+							</h1>
+								<div id="weather"></div>
+						  </div>
+						</div>
+					  </section>
+
+					  <!-- exchange rate section -->
+					  <section class="hero is-dark is-fullheight is-bold">
+						<div class="hero-body">
+						  <div class="container">
+							<h1 class="title">
+								Exchange Rate
+							</h1>
+							<div id ="exchange-rate"></div>
+						</div>
+					  </section>
+
+<!-- restaurant section -->
+					  <section class="hero is-light is-fullheight is-bold">
+						<div class="hero-body">
+						  <div class="container">
+							<h1 class="title">
+								Restaurants
+							</h1>
+								<div id="restaurants"></div>
+						  </div>
+						</div>
+					  </section>
+
 			</div>
 		</main>
-		<footer class="container.is-widescreen has-background-success-light has-text-centered m-4 p-4">
+		<footer class="container.is-widescreen has-background-dark has-text-centered m-4 p-4">
 			<h1>Footer</h1>
 		</footer>
 		<script
