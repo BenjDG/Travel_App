@@ -6,3 +6,10 @@ button {
   right:0;
   top: 0;
 }
+a{
+  color: inherit;
+  
+}
+a:hover {
+  transform: scale(1.5, 1.5);
+}

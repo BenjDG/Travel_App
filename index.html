@@ -10,6 +10,7 @@
 			integrity="sha512-ZRv40llEogRmoWgZwnsqke3HNzJ0kiI0+pcMgiz2bxO6Ew1DVBtWjVn0qjrXdT3+u+pSN36gLgmJiiQ3cQtyzA=="
 			crossorigin="anonymous"
 		/>
+		<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&display=swap" rel="stylesheet">
 		<script
 			src="https://kit.fontawesome.com/3ea7a994a9.js"
 			crossorigin="anonymous"
@@ -18,17 +19,16 @@
 	</head>
 	<body>
 		<main class="container.is-widescreen content">
-			<section class="hero is-dark is-fullheight is-bold">
+			<section id="page1" class="hero is-dark is-fullheight is-bold">
+				<h1 class="title has-text-centered">Travel Planner</h1>
 				<div class="hero-body">
 					<div class="container">
-						<h1 class="title is-large has-text-centered">
-							Enter a city name
-						</h1>
 						<form class="field">
 							<input
 								id="input-city-name"
-								class="input is-rounded is-large"
+								class="input is-rounded is-large has-text-centered"
 								type="text"
+								placeholder="Enter a city name"
 								name="city"
 							/>
 							<button
@@ -38,35 +38,45 @@
 								<i class="fas fa-search"></i>
 							</button>
 						</form>
+						
 					</div>
+					
 				</div>
+				
 			</section>
 			<!-- main body section -->
 			<!-- weather section -->
-			<section class="hero is-light is-fullheight is-bold">
+			<section id="page2" class="hero is-light is-fullheight is-bold has-text-centered">
+				<a href="#page1"><i class="fas fa-chevron-up fa-4x"></i></a>
 				<div class="hero-body">
 					<div class="container">
-						<h1 class="title">Weather Section</h1>
+						<h2 class="title">Weather Forecast</h2>
 						<div id="weather"></div>
+						
 					</div>
+					
 				</div>
+				<a href="#page3"><i class="fas fa-chevron-down fa-4x"></i></a>
 			</section>
 
 			<!-- exchange rate section -->
-			<section class="hero is-dark is-fullheight is-bold">
+			<section id="page3" class="hero is-dark is-fullheight is-bold has-text-centered">
+				<a href="#page2"><i class="fas fa-chevron-up fa-4x"></i></a>
 				<div class="hero-body">
 					<div class="container">
-						<h1 class="title">Exchange Rate</h1>
+						<h2 class="title">Events</h2>
 						<div id="exchange-rate"></div>
 					</div>
 				</div>
+				<a href="#page4"><i class="fas fa-chevron-down fa-4x"></i></a>
 			</section>
 
 			<!-- restaurant section -->
-			<section class="hero is-light is-fullheight is-bold">
+			<section id="page4" class="hero is-light is-fullheight is-bold has-text-centered">
+				<a href="#page3"><i class="fas fa-chevron-up fa-4x"></i></a>
 				<div class="hero-body">
 					<div class="container">
-						<h1 class="title">Restaurants</h1>
+						<h2 class="title">Maps</h2>
 						<div id="restaurants"></div>
 					</div>
 				</div>
@@ -75,7 +85,7 @@
 		<footer
 			class="container.is-widescreen has-background-dark has-text-centered m-4 p-4"
 		>
-			<h1>Footer</h1>
+			<h2>Footer</h2>
 		</footer>
 		<script
 			src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
