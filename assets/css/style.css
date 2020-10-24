@@ -16,7 +16,7 @@ h1{
   position: relative;
 }
 
-button {
+#input-button {
   position: absolute !important;
   right:0;
   top: 0;
