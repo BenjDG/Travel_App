@@ -48,7 +48,7 @@ function getWeatherForecast(lon, lat) {
             $('#weather').empty();
 
             for (var i = 0; i < 7; i++) {
-                $divParent = $('<div>');
+                $divParent = $('<div>').attr('class', 'weather-box');
                 $date = $('<div>').html(dayjs.unix(res.daily[i].dt).format('MM/DD/YYYY'));
                 $highTemp = $('<div>').html(toF(res.daily[i].temp.max) + "&#8457");
                 $lowTemp = $('<div>').html(toF(res.daily[i].temp.min) + "&#8457");
@@ -57,13 +57,12 @@ function getWeatherForecast(lon, lat) {
                 
                 $divParent.append($date, $highTemp, $lowTemp, $description, $image);
                 $('#weather').append($divParent);
+                
             }
-            // console.log(res.daily[0]);
-            // console.log(dayjs.unix(res.daily[0].dt).format('MM/DD/YYYY'));
-            // console.log(toF(res.daily[0].temp.max));
-            // console.log(toF(res.daily[0].temp.min));
-            // console.log(res.daily[0].weather[0].description);
-            // console.log(res.daily[0].weather[0].icon);
+            
+        })
+        .then(function() {
+            window.location = "#page2";
         })
 }
 
