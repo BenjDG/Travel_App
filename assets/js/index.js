@@ -12,6 +12,12 @@ $('#input-button').on('click', function (event) {
 
 
 });
+//weather carousel
+bulmaCarousel.attach('#slider', {
+    slidesToScroll: 1,
+    slidesToShow: 1,
+    infinite: true
+  });
 
 //weather section
 function getCurrentWeatherData(city) {
@@ -46,6 +52,11 @@ function getWeatherForecast(lon, lat) {
             // 7-day forecast
             
             $('#weather').empty();
+//construct carousel
+$section = $();
+
+
+
 
             for (var i = 0; i < 7; i++) {
                 $divParent = $('<div>').attr('class', 'weather-box');
