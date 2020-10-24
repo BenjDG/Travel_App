@@ -1,5 +1,7 @@
 body{
   font-family: 'Cinzel', serif;
+  display: flex;
+  flex-direction: column;
 }
 
 h1{
@@ -27,3 +29,9 @@ a{
 a:hover {
   transform: scale(1.5, 1.5);
 }
+
+
+  #map {
+    height: 400px;
+    width: 100%;
+  }

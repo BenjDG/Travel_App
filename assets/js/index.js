@@ -8,7 +8,7 @@ $('#input-button').on('click', function (event) {
     $('input').val("");
     console.log(inputCity);
     getCurrentWeatherData(inputCity);
-    
+    initMap();
 
 
 });
@@ -77,30 +77,32 @@ function toF(k) {
 
 
 
-//exchange rate section
-//function tripadvisory(){
-    var queryURL = "https://www.travel-advisory.info/api"
+//map section
+let map;
 
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-    })
-//}
+function initMap() {
+    const uluru = { lat: -25.344, lng: 131.036 };
+    // The map, centered at Uluru
+    const map = new google.maps.Map(document.getElementById("map"), {
+      zoom: 4,
+      center: uluru,
+    });
+    // The marker, positioned at Uluru
+    const marker = new google.maps.Marker({
+      position: uluru,
+      map: map,
+    }); 
 
-const settings = {
-	"async": true,
-	"crossDomain": true,
-	"url": "https://rapidapi.p.rapidapi.com/api/countries/US",
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-host": "travel-hacking-tool.p.rapidapi.com",
-		"x-rapidapi-key": "89701e5d1amshdd9297133bad4e3p160225jsn0869b9ec377f"
-	}
-};
+ 
 
-$.ajax(settings).done(function (response) {
-	console.log(response);
-});
+
+ // $('#map').empty();
+  //for(var i = 0; i > 7; i++){
+    //  $divParent = $("<div>");
+    //  $("#map").append($divParent);
+  //}
+}
+
 
 
 //resaurant section

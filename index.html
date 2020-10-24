@@ -4,7 +4,10 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Travel Planner</title>
-		<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&display=swap" rel="stylesheet">
+		<link
+			href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
 		<link
 			rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.1/css/bulma.min.css"
@@ -43,7 +46,10 @@
 			</section>
 			<!-- main body section -->
 			<!-- weather section -->
-			<section id="page2" class="hero is-light is-fullheight is-bold has-text-centered">
+			<section
+				id="page2"
+				class="hero is-light is-fullheight is-bold has-text-centered"
+			>
 				<a href="#page1"><i class="fas fa-chevron-up fa-4x"></i></a>
 				<div class="hero-body">
 					<div class="container">
@@ -53,25 +59,29 @@
 				</div>
 				<a href="#page3"><i class="fas fa-chevron-down fa-4x"></i></a>
 			</section>
-
-			<!-- exchange rate section -->
-			<section id="page3" class="hero is-dark is-fullheight is-bold has-text-centered">
+			<!-- map section -->
+			<section
+				id="page3"
+				class="hero is-dark is-fullheight is-bold has-text-centered"
+			>
 				<a href="#page2"><i class="fas fa-chevron-up fa-4x"></i></a>
 				<div class="hero-body">
 					<div class="container">
-						<h2 class="title">Events</h2>
-						<div id="exchange-rate"></div>
+						<h2 class="title">Map</h2>
+						<div id="map"></div>
 					</div>
 				</div>
 				<a href="#page4"><i class="fas fa-chevron-down fa-4x"></i></a>
 			</section>
-
-			<!-- restaurant section -->
-			<section id="page4" class="hero is-light is-fullheight is-bold has-text-centered">
+			<!-- Events section -->
+			<section
+				id="page4"
+				class="hero is-light is-fullheight is-bold has-text-centered"
+			>
 				<a href="#page3"><i class="fas fa-chevron-up fa-4x"></i></a>
 				<div class="hero-body">
 					<div class="container">
-						<h2 class="title">Maps</h2>
+						<h2 class="title">Events</h2>
 						<div id="restaurants"></div>
 					</div>
 				</div>
@@ -87,14 +97,18 @@
 			integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
 			crossorigin="anonymous"
 		></script>
+		<!-- maps scripts -->
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+		<script
+			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_S1uoSa96ZjyPEwW3mvugcoqrGKhW4vA&callback=initMap&libraries=&v=weekly"
+			defer
+		></script>
 		<!-- day.js framework -->
-
 		<script
 			src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.9.3/dayjs.min.js"
 			integrity="sha512-u7elBfdMr+7LhU4rvUk3IM28QZDKTyUxba4Nx2IJ1W9cj4shfRSPq7EZXD2ULD9cBoizw2FQyeR6YBog6LcnHg=="
 			crossorigin="anonymous"
 		></script>
-
 		<script src="./assets/js/index.js"></script>
 	</body>
 </html>
