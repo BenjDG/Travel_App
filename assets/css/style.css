@@ -11,3 +11,8 @@ html, body {
   .footer {
     flex-shrink: 0;
   }
+
+  #map {
+    height: 400px;
+    width: 100%;
+  }

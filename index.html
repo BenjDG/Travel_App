@@ -1,66 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Travel Planner</title>
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.1/css/bulma.min.css"
-			integrity="sha512-ZRv40llEogRmoWgZwnsqke3HNzJ0kiI0+pcMgiz2bxO6Ew1DVBtWjVn0qjrXdT3+u+pSN36gLgmJiiQ3cQtyzA=="
-			crossorigin="anonymous"
-		/>
-		<script
-			src="https://kit.fontawesome.com/3ea7a994a9.js"
-			crossorigin="anonymous"
-		></script>
-		<link rel="stylesheet" href="./assets/css/style.css" />
-	</head>
-	<body>
-		<header
-			class="container.is-widescreen has-background-success has-text-centered m-4 p-4"
-		>
-			<h1 class="is-size-1">Header</h1>
-		</header>
-		<main class="container.is-widescreen m-4 content">
-			<div class="columns">
 
-                
-				<!-- left side menu -->
-				<aside class="column is-one-quarter m-4">
-                    <label for="city">Enter a city name</label>
-						<form class="field has-addons">
-							<input
-								id="input-city-name"
-								class="input"
-								type="text"
-								name="city"
-							/>
-							<button id="input-button" class="button">GO</button>
-						</form>
-				</aside>
-				<!-- main body section -->
-				<section class="column has-background-light m-4">
-					<!-- weather section -->
-					<h1>Weather Section</h1>
-					<div id="weather"></div>
-					<!-- exchange rate -->
-					<div id ="exchange-rate"><h1>Exchange Rate</h1></div>
-					<!-- restaurant section -->
-					<div><h1>Restaurants</h1></div>
-				</section>
-			</div>
-		</main>
-		<footer class="container.is-widescreen has-background-success-light has-text-centered m-4 p-4">
-			<h1>Footer</h1>
-		</footer>
-		<script
-			src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
-			integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
-			crossorigin="anonymous"
-		></script>
-		<!-- day.js framework -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.9.3/dayjs.min.js" integrity="sha512-u7elBfdMr+7LhU4rvUk3IM28QZDKTyUxba4Nx2IJ1W9cj4shfRSPq7EZXD2ULD9cBoizw2FQyeR6YBog6LcnHg==" crossorigin="anonymous"></script>
-		<script src="./assets/js/index.js"></script>
-	</body>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Travel Planner</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.1/css/bulma.min.css"
+		integrity="sha512-ZRv40llEogRmoWgZwnsqke3HNzJ0kiI0+pcMgiz2bxO6Ew1DVBtWjVn0qjrXdT3+u+pSN36gLgmJiiQ3cQtyzA=="
+		crossorigin="anonymous" />
+	<script src="https://kit.fontawesome.com/3ea7a994a9.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="./assets/css/style.css" />
+</head>
+
+<body>
+	<header class="container.is-widescreen has-background-success has-text-centered m-4 p-4">
+		<h1 class="is-size-1">Header</h1>
+	</header>
+	<main class="container.is-widescreen m-4 content">
+		<div class="columns">
+
+
+			<!-- left side menu -->
+			<aside class="column is-one-quarter m-4">
+				<label for="city">Enter a city name</label>
+				<form class="field has-addons">
+					<input id="input-city-name" class="input" type="text" name="city" />
+					<button id="input-button" class="button">GO</button>
+				</form>
+			</aside>
+			<!-- main body section -->
+			<section class="column has-background-light m-4">
+				<!-- weather section -->
+				<h1>Weather Section</h1>
+				<div id="weather"></div>
+				<!-- exchange rate -->
+				<h1>Map</h1>
+				<div id="map"></div>
+				<!-- restaurant section -->
+				<div>
+					<h1>Restaurants</h1>
+				</div>
+			</section>
+		</div>
+	</main>
+	<footer class="container.is-widescreen has-background-success-light has-text-centered m-4 p-4">
+		<h1>Footer</h1>
+	</footer>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+		integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+		crossorigin="anonymous"></script>
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_S1uoSa96ZjyPEwW3mvugcoqrGKhW4vA&callback=initMap&libraries=&v=weekly"
+		defer></script>
+	<!-- day.js framework -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.9.3/dayjs.min.js"
+		integrity="sha512-u7elBfdMr+7LhU4rvUk3IM28QZDKTyUxba4Nx2IJ1W9cj4shfRSPq7EZXD2ULD9cBoizw2FQyeR6YBog6LcnHg=="
+		crossorigin="anonymous"></script>
+	<script src="./assets/js/index.js"></script>
+</body>
+
 </html>
