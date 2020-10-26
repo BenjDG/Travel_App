@@ -9,8 +9,6 @@ $('#input-button').on('click', function (event) {
     console.log(inputCity);
     getCurrentWeatherData(inputCity);
     
-
-
 });
 
 
@@ -23,7 +21,7 @@ function getCurrentWeatherData(city) {
         url: queryURL,
         method: "GET"
     })
-        .then(function (res) {
+        .then(function(res) {
             //console.log(res.coord);
             var lon = res.coord.lon;
             var lat = res.coord.lat;
@@ -43,7 +41,7 @@ function getWeatherForecast(lon, lat) {
         method: "GET"
     })
         .then(function (res) {
-            console.log(res);
+            //console.log(res);
             // 7-day forecast
 
             $('#weather').empty();
@@ -54,7 +52,7 @@ function getWeatherForecast(lon, lat) {
 
 
             for (var i = 0; i < 7; i++) {
-                
+
                 dayObject = {
                     date: dayjs.unix(res.daily[i].dt).format('MM/DD/YYYY'),
                     high: toF(res.daily[i].temp.max),
@@ -63,27 +61,9 @@ function getWeatherForecast(lon, lat) {
                     image: 'http://openweathermap.org/img/wn/' + res.daily[i].weather[0].icon + '@2x.png'
                 }
 
-                $divParent = $('<div>').attr('class', 'item-' + i);
-                //console.log($divParent);
-                $date = $('<div>').html(dayjs.unix(res.daily[i].dt).format('MM/DD/YYYY'));
-                $highTemp = $('<div>').html(toF(res.daily[i].temp.max) + "&#8457");
-                $lowTemp = $('<div>').html(toF(res.daily[i].temp.min) + "&#8457");
-                $description = $('<div>').html(res.daily[i].weather[0].description);
-                $image = $('<img>').attr('src', 'http://openweathermap.org/img/wn/' + res.daily[i].weather[0].icon + '@2x.png');
 
-                $divParent.append($date, $highTemp, $lowTemp, $description, $image);
-                //make cards
-                $cardDiv = $('<div>').attr('class', 'card');
-                $cardContent = $('<div>').attr('class', 'card-content');
-
-                $cardContent.append($divParent);
-
-                $cardDiv.append($cardContent);
-                //console.log($cardDiv.toArray());
-
-                $('#weather').append($cardDiv);
-
-                console.log(dayObject);
+                //console.log(dayObject);
+                $weather.push(dayObject);
 
 
             }
@@ -92,13 +72,34 @@ function getWeatherForecast(lon, lat) {
         .then(function () {
             window.location = "#page2";
         });
-        
-        
+
+    console.log($weather);
+    
 };
 
 function toF(k) {
     var f = (k - 273.15) * 9 / 5 + 32;
     return f.toFixed();
+}
+//renderWeather($weather[0]);
+function renderWeather(day) {
+
+    console.log(day);
+    $divParent = $('<div>').attr('class', 'item-' + 'number');
+    //console.log($divParent);
+    $date = $('<div>').html();
+    $highTemp = $('<div>').html(toF(res.daily[i].temp.max) + "&#8457");
+    $lowTemp = $('<div>').html(toF(res.daily[i].temp.min) + "&#8457");
+    $description = $('<div>').html(res.daily[i].weather[0].description);
+    $image = $('<img>').attr('src', 'http://openweathermap.org/img/wn/' + res.daily[i].weather[0].icon + '@2x.png');
+    $divParent.append($date, $highTemp, $lowTemp, $description, $image);
+    //make cards
+    $cardDiv = $('<div>').attr('class', 'card');
+    $cardContent = $('<div>').attr('class', 'card-content');
+    $cardContent.append($divParent);
+    $cardDiv.append($cardContent);
+    $('#weather').append($cardDiv);
+
 }
 
 
@@ -114,9 +115,12 @@ function toF(k) {
 
 
 //map section
-var map;
+//var map;
 
 function initMap(lat, lng) {
+
+    if(lat && lng) {
+    //console.log(lat);
     var uluru = { lat: lat, lng: lng };
     // The map, centered at Uluru
     var map = new google.maps.Map(document.getElementById("map"), {
@@ -128,7 +132,9 @@ function initMap(lat, lng) {
         position: uluru,
         map: map,
     });
-
+} else {
+    return;
+}
 
 
 
