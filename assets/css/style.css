@@ -42,6 +42,10 @@ a:hover {
   padding: 5rem;
 }
 
+.item{
+  width: 15rem;
+}
+
 #weather{
   
   display: flex;

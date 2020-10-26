@@ -88,7 +88,7 @@ function toF(k) {
 function renderWeather(day) {
     $('#weather').empty();
     //console.dir(day);
-    $divParent = $('<div>').attr('class', 'item-' + 'number');
+    $divParent = $('<div>').attr('class', 'item');
     //console.log($divParent);
     $date = $('<div>').html(day.date);
     $highTemp = $('<div>').html("High: " + (day.high) + "&#8457");
