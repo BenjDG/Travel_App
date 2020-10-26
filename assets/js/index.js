@@ -86,8 +86,8 @@ function toF(k) {
 
 //renderWeather($weather[0]);
 function renderWeather(day) {
-
-    console.dir(day);
+    $('#weather').empty();
+    //console.dir(day);
     $divParent = $('<div>').attr('class', 'item-' + 'number');
     //console.log($divParent);
     $date = $('<div>').html(day.date);
@@ -106,27 +106,50 @@ function renderWeather(day) {
 
     // <i class="fas fa-chevron-circle-left"></i>  <i class="fas fa-chevron-circle-right"></i>
 
-    $leftButton = $('<i>').attr('class', 'fas fa-chevron-circle-left fa-4x arrow-padding');
+    $leftButton = $('<i>').attr('class', 'fas fa-chevron-circle-left fa-4x arrow-padding').attr('id','left-arrow-id');
     $leftButtonDiv = $('<div>').attr('class', 'left-arrow');
-    $rightButton = $('<i>').attr('class', 'fas fa-chevron-circle-right fa-4x arrow-padding');
+    $rightButton = $('<i>').attr('class', 'fas fa-chevron-circle-right fa-4x arrow-padding').attr('id','right-arrow-id');
     $rightButtonDiv = $('<div>').attr('class', 'right-arrow');
     $leftButtonDiv.append($leftButton);
     $rightButtonDiv.append($rightButton);
     $('#weather').prepend($leftButtonDiv);
     $('#weather').append($rightButtonDiv);
 
+    $('#left-arrow-id').on('click', function (event) {
+        event.preventDefault();
+        console.log("left-arrow click");
+        changeWeatherDayDecrement();
+    });
+    $('#right-arrow-id').on('click', function (event) {
+        event.preventDefault();
+        console.log("right-arrow click");
+        changeWeatherDayIncrement();
+    });
+
+
 }
 
-function changeWeatherDayRender(i) {
-    renderWeather(weather[i]);
-
+function changeWeatherDayIncrement() {
+    if(currentIndex < 6){
+        currentIndex++;
+    }
+    renderWeather(weather[currentIndex]);
 }
 
-//left & right arrow click listeners
-$('').on('click', function (event) {
-    event.preventDefault();
+function changeWeatherDayDecrement() {
+    if(currentIndex > 0){
+        currentIndex--;
+    } 
+    renderWeather(weather[currentIndex]);
+}
 
-});
+
+// //left & right arrow click listeners
+// $('.left-arrow').on('click', function (event) {
+//     event.preventDefault();
+//     console.log("left-arrow click");
+
+// });
 
 
 
