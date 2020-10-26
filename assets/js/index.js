@@ -87,18 +87,19 @@ function renderWeather(day) {
     console.dir(day);
     $divParent = $('<div>').attr('class', 'item-' + 'number');
     //console.log($divParent);
-    $date = $('<div>').html();
-    // $highTemp = $('<div>').html(toF(res.daily[i].temp.max) + "&#8457");
-    // $lowTemp = $('<div>').html(toF(res.daily[i].temp.min) + "&#8457");
-    // $description = $('<div>').html(res.daily[i].weather[0].description);
-    // $image = $('<img>').attr('src', 'http://openweathermap.org/img/wn/' + res.daily[i].weather[0].icon + '@2x.png');
-    // $divParent.append($date, $highTemp, $lowTemp, $description, $image);
+    $date = $('<div>').html(day.date);
+    $highTemp = $('<div>').html("High: " + (day.high) + "&#8457");
+    $lowTemp = $('<div>').html("Low: " + (day.low) + "&#8457");
+    $description = $('<div>').html(day.desc);
+    $image = $('<img>').attr('src', day.image);
+    $divParent.append($date, $highTemp, $lowTemp, $image, $description);
+    // $highTemp, $lowTemp, $description, $image
     // //make cards
-    // $cardDiv = $('<div>').attr('class', 'card');
-    // $cardContent = $('<div>').attr('class', 'card-content');
-    // $cardContent.append($divParent);
-    // $cardDiv.append($cardContent);
-    // $('#weather').append($cardDiv);
+    $cardDiv = $('<div>').attr('class', 'card');
+    $cardContent = $('<div>').attr('class', 'card-content');
+    $cardContent.append($divParent);
+    $cardDiv.append($cardContent);
+    $('#weather').append($cardDiv);
 
 }
 
