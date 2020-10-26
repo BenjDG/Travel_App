@@ -1,6 +1,7 @@
 //global variables
 var weather = [];
 var currentCity;
+var currentIndex = 0;
 
 //input section
 $('#input-button').on('click', function (event) {
@@ -12,6 +13,8 @@ $('#input-button').on('click', function (event) {
 
     currentCity = inputCity;
 });
+
+
 
 
 //weather section
@@ -101,12 +104,29 @@ function renderWeather(day) {
     $cardDiv.append($cardContent);
     $('#weather').append($cardDiv);
 
+    // <i class="fas fa-chevron-circle-left"></i>  <i class="fas fa-chevron-circle-right"></i>
+
+    $leftButton = $('<i>').attr('class', 'fas fa-chevron-circle-left fa-4x arrow-padding');
+    $leftButtonDiv = $('<div>').attr('class', 'left-arrow');
+    $rightButton = $('<i>').attr('class', 'fas fa-chevron-circle-right fa-4x arrow-padding');
+    $rightButtonDiv = $('<div>').attr('class', 'right-arrow');
+    $leftButtonDiv.append($leftButton);
+    $rightButtonDiv.append($rightButton);
+    $('#weather').prepend($leftButtonDiv);
+    $('#weather').append($rightButtonDiv);
+
 }
 
+function changeWeatherDayRender(i) {
+    renderWeather(weather[i]);
 
-// function clearWeatherData() {
-//     $('#weather').empty();
-// }
+}
+
+//left & right arrow click listeners
+$('').on('click', function (event) {
+    event.preventDefault();
+
+});
 
 
 
