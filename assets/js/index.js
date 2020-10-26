@@ -48,12 +48,8 @@ function getWeatherForecast(lon, lat) {
 
             $('#weather').empty();
             //construct carousel
-            $section = $('<section>').attr('class', 'section');
-            $divContainer = $('<div>').attr('class', 'container is-clipped');
-            $divCarousel = $('<div>').attr('id', 'slider');
-            $('#weather').append($section);
-            $section.append($divContainer)
-            $divContainer.append($divCarousel);
+            
+
 
 
 
@@ -66,7 +62,16 @@ function getWeatherForecast(lon, lat) {
                 $image = $('<img>').attr('src', 'http://openweathermap.org/img/wn/' + res.daily[i].weather[0].icon + '@2x.png');
 
                 $divParent.append($date, $highTemp, $lowTemp, $description, $image);
-                $divCarousel.append($divParent);
+                //make cards
+                $cardDiv = $('<div>').attr('class', 'card');
+                $cardContent = $('<div>').attr('class', 'card-content');
+
+                $cardContent.append($divParent);
+
+                $cardDiv.append($cardContent);
+
+                $('#weather').append($cardDiv);
+
 
             }
 
@@ -81,12 +86,6 @@ function toF(k) {
     return f.toFixed();
 }
 
-//weather carousel
-bulmaCarousel.attach('#slider', {
-    slidesToScroll: 2,
-    slidesToShow: 1,
-    infinite: true
-});
 
 // function clearWeatherData() {
 //     $('#weather').empty();
