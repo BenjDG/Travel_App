@@ -1,13 +1,16 @@
 //global variables
 var $weather = [];
+var currentCity;
 
 //input section
 $('#input-button').on('click', function (event) {
     event.preventDefault();
     var inputCity = $('input').val();
     $('input').val("");
-    console.log(inputCity);
+    //console.log(inputCity);
     getCurrentWeatherData(inputCity);
+
+    currentCity = inputCity;
     
 });
 
@@ -35,25 +38,27 @@ function getCurrentWeatherData(city) {
 
 function getWeatherForecast(lon, lat) {
     var queryURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=current,minutely,hourly,alerts&appid=16e2a29d08bf4766fcdb6563c3920b3d";
-
+    $weather = [];
     $.ajax({
         url: queryURL,
         method: "GET"
     })
         .then(function (res) {
-            //console.log(res);
+            console.log(res);
             // 7-day forecast
 
             $('#weather').empty();
-            //construct carousel
+            
 
-
+            $('#city-name').empty();
+            $('#city-name').html(currentCity);
 
 
 
             for (var i = 0; i < 7; i++) {
-
+               
                 dayObject = {
+                    city: currentCity,
                     date: dayjs.unix(res.daily[i].dt).format('MM/DD/YYYY'),
                     high: toF(res.daily[i].temp.max),
                     low: toF(res.daily[i].temp.min),
@@ -72,9 +77,7 @@ function getWeatherForecast(lon, lat) {
         .then(function () {
             window.location = "#page2";
         });
-
-    console.log($weather);
-    
+        console.log($weather);
 };
 
 function toF(k) {
