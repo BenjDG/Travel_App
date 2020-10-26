@@ -1,5 +1,5 @@
 //global variables
-
+var $weather = [];
 
 //input section
 $('#input-button').on('click', function (event) {
@@ -48,13 +48,23 @@ function getWeatherForecast(lon, lat) {
 
             $('#weather').empty();
             //construct carousel
-            
+
 
 
 
 
             for (var i = 0; i < 7; i++) {
-                $divParent = $('<div>').attr('class', 'item-' + (i + 1));
+                
+                dayObject = {
+                    date: dayjs.unix(res.daily[i].dt).format('MM/DD/YYYY'),
+                    high: toF(res.daily[i].temp.max),
+                    low: toF(res.daily[i].temp.min),
+                    desc: res.daily[i].weather[0].description,
+                    image: 'http://openweathermap.org/img/wn/' + res.daily[i].weather[0].icon + '@2x.png'
+                }
+
+                $divParent = $('<div>').attr('class', 'item-' + i);
+                //console.log($divParent);
                 $date = $('<div>').html(dayjs.unix(res.daily[i].dt).format('MM/DD/YYYY'));
                 $highTemp = $('<div>').html(toF(res.daily[i].temp.max) + "&#8457");
                 $lowTemp = $('<div>').html(toF(res.daily[i].temp.min) + "&#8457");
@@ -69,8 +79,11 @@ function getWeatherForecast(lon, lat) {
                 $cardContent.append($divParent);
 
                 $cardDiv.append($cardContent);
+                //console.log($cardDiv.toArray());
 
                 $('#weather').append($cardDiv);
+
+                console.log(dayObject);
 
 
             }
@@ -78,8 +91,10 @@ function getWeatherForecast(lon, lat) {
         })
         .then(function () {
             window.location = "#page2";
-        })
-}
+        });
+        
+        
+};
 
 function toF(k) {
     var f = (k - 273.15) * 9 / 5 + 32;
@@ -90,6 +105,11 @@ function toF(k) {
 // function clearWeatherData() {
 //     $('#weather').empty();
 // }
+
+
+
+
+
 
 
 
