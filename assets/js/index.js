@@ -8,7 +8,7 @@ $('#input-button').on('click', function (event) {
     $('input').val("");
     console.log(inputCity);
     getCurrentWeatherData(inputCity);
-    initMap();
+    
 
 
 });
@@ -28,7 +28,7 @@ function getCurrentWeatherData(city) {
             var lon = res.coord.lon;
             var lat = res.coord.lat;
             getWeatherForecast(lon, lat);
-
+            initMap(lat, lon);
         })
 
     //renderWeatherData(response);
@@ -114,17 +114,17 @@ function toF(k) {
 
 
 //map section
-let map;
+var map;
 
-function initMap() {
-    const uluru = { lat: -25.344, lng: 131.036 };
+function initMap(lat, lng) {
+    var uluru = { lat: lat, lng: lng };
     // The map, centered at Uluru
-    const map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 4,
+    var map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 7,
         center: uluru,
     });
     // The marker, positioned at Uluru
-    const marker = new google.maps.Marker({
+    var marker = new google.maps.Marker({
         position: uluru,
         map: map,
     });
