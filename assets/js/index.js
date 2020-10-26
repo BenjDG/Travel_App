@@ -1,5 +1,5 @@
 //global variables
-
+var $weather = [];
 
 //input section
 $('#input-button').on('click', function (event) {
@@ -8,10 +8,11 @@ $('#input-button').on('click', function (event) {
     $('input').val("");
     console.log(inputCity);
     getCurrentWeatherData(inputCity);
-    initMap();
+    
 
 
 });
+
 
 //weather section
 function getCurrentWeatherData(city) {
@@ -27,7 +28,7 @@ function getCurrentWeatherData(city) {
             var lon = res.coord.lon;
             var lat = res.coord.lat;
             getWeatherForecast(lon, lat);
-
+            initMap(lat, lon);
         })
 
     //renderWeatherData(response);
@@ -44,32 +45,62 @@ function getWeatherForecast(lon, lat) {
         .then(function (res) {
             console.log(res);
             // 7-day forecast
-            
+
             $('#weather').empty();
+            //construct carousel
+
+
+
+
 
             for (var i = 0; i < 7; i++) {
-                $divParent = $('<div>').attr('class', 'weather-box');
+                
+                dayObject = {
+                    date: dayjs.unix(res.daily[i].dt).format('MM/DD/YYYY'),
+                    high: toF(res.daily[i].temp.max),
+                    low: toF(res.daily[i].temp.min),
+                    desc: res.daily[i].weather[0].description,
+                    image: 'http://openweathermap.org/img/wn/' + res.daily[i].weather[0].icon + '@2x.png'
+                }
+
+                $divParent = $('<div>').attr('class', 'item-' + i);
+                //console.log($divParent);
                 $date = $('<div>').html(dayjs.unix(res.daily[i].dt).format('MM/DD/YYYY'));
                 $highTemp = $('<div>').html(toF(res.daily[i].temp.max) + "&#8457");
                 $lowTemp = $('<div>').html(toF(res.daily[i].temp.min) + "&#8457");
                 $description = $('<div>').html(res.daily[i].weather[0].description);
                 $image = $('<img>').attr('src', 'http://openweathermap.org/img/wn/' + res.daily[i].weather[0].icon + '@2x.png');
-                
+
                 $divParent.append($date, $highTemp, $lowTemp, $description, $image);
-                $('#weather').append($divParent);
-                
+                //make cards
+                $cardDiv = $('<div>').attr('class', 'card');
+                $cardContent = $('<div>').attr('class', 'card-content');
+
+                $cardContent.append($divParent);
+
+                $cardDiv.append($cardContent);
+                //console.log($cardDiv.toArray());
+
+                $('#weather').append($cardDiv);
+
+                console.log(dayObject);
+
+
             }
-            
+
         })
-        .then(function() {
+        .then(function () {
             window.location = "#page2";
-        })
-}
+        });
+        
+        
+};
 
 function toF(k) {
     var f = (k - 273.15) * 9 / 5 + 32;
     return f.toFixed();
 }
+
 
 // function clearWeatherData() {
 //     $('#weather').empty();
@@ -77,31 +108,35 @@ function toF(k) {
 
 
 
-//map section
-let map;
 
-function initMap() {
-    const liberty = { lat: 40.689247, lng: -74.044502};
+
+
+
+
+//map section
+var map;
+
+function initMap(lat, lng) {
+    var uluru = { lat: lat, lng: lng };
     // The map, centered at Uluru
-    const map = new google.maps.Map(document.getElementById("map"), {
-      zoom: 8,
-      center: liberty,
-     
+    var map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 7,
+        center: uluru,
     });
     // The marker, positioned at Uluru
-    const marker = new google.maps.Marker({
-      position: liberty,
-      map: map,
-    }); 
-
- 
+    var marker = new google.maps.Marker({
+        position: uluru,
+        map: map,
+    });
 
 
- // $('#map').empty();
-  //for(var i = 0; i > 7; i++){
+
+
+    // $('#map').empty();
+    //for(var i = 0; i > 7; i++){
     //  $divParent = $("<div>");
     //  $("#map").append($divParent);
-  //}
+    //}
 }
 
 
