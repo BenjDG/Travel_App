@@ -65,18 +65,14 @@ function getWeatherForecast(lon, lat) {
                 weather.push(dayObject);
             }
         })
-        .then(function () {
-            window.location = "#page2";
-        })
         .then(function() {
             console.log(weather[0]);
             renderWeather(weather[0]);
+            $('#hide-it').removeClass('is-hidden');
+        })
+        .then(function () {
+            window.location = "#page2";
         });
-        
-       // console.log(weather);
-        //console.log(weather[0]);
-
-        //renderWeather(weather[0]);
 };
 
 function toF(k) {

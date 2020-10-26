@@ -4,7 +4,11 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Travel Planner</title>
-		<link rel="shortcut icon" href="./assets/images/favicon.ico" type="image/x-icon">
+		<link
+			rel="shortcut icon"
+			href="./assets/images/favicon.ico"
+			type="image/x-icon"
+		/>
 		<link
 			href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&display=swap"
 			rel="stylesheet"
@@ -46,52 +50,57 @@
 				</div>
 			</section>
 			<!-- main body section -->
-
-			<!-- weather section -->
-			<section
-				id="page2"
-				class="hero is-light is-fullheight is-bold has-text-centered"
-			>
-				<a href="#page1"><i class="fas fa-chevron-up fa-4x"></i></a>
-				<div class="hero-body">
-					<div class="container">
-						<div class="forecast-title">
-							<h2 id="city-name" class="title"></h2>
-							<h2 class="title">Weather Forecast</h2>
+			<div id="hide-it" class="is-hidden">
+				<!-- weather section -->
+				<section
+					id="page2"
+					class="hero is-light is-fullheight is-bold has-text-centered"
+				>
+					<a href="#page1"><i class="fas fa-chevron-up fa-4x"></i></a>
+					<div class="hero-body">
+						<div class="container">
+							<div class="forecast-title">
+								<h2 id="city-name" class="title"></h2>
+								<h2 class="title">Weather Forecast</h2>
+							</div>
+							<div id="weather" class="is-flex"></div>
 						</div>
-						<div id="weather" class="is-flex"></div>
 					</div>
-				</div>
-				<a href="#page3"><i class="fas fa-chevron-down fa-4x"></i></a>
-			</section>
+					<a href="#page3"
+						><i class="fas fa-chevron-down fa-4x"></i
+					></a>
+				</section>
 
-			<!-- map section -->
-			<section
-				id="page3"
-				class="hero is-dark is-fullheight is-bold has-text-centered"
-			>
-				<a href="#page2"><i class="fas fa-chevron-up fa-4x"></i></a>
-				<div class="hero-body">
-					<div class="container">
-						<h2 class="title">Map</h2>
-						<div id="map"></div>
+				<!-- map section -->
+				<section
+					id="page3"
+					class="hero is-dark is-fullheight is-bold has-text-centered"
+				>
+					<a href="#page2"><i class="fas fa-chevron-up fa-4x"></i></a>
+					<div class="hero-body">
+						<div class="container">
+							<h2 class="title">Map</h2>
+							<div id="map"></div>
+						</div>
 					</div>
-				</div>
-				<a href="#page4"><i class="fas fa-chevron-down fa-4x"></i></a>
-			</section>
-			<!-- Events section -->
-			<section
-				id="page4"
-				class="hero is-light is-fullheight is-bold has-text-centered"
-			>
-				<a href="#page3"><i class="fas fa-chevron-up fa-4x"></i></a>
-				<div class="hero-body">
-					<div class="container">
-						<h2 class="title">Events</h2>
-						<div id="restaurants"></div>
+					<a href="#page4"
+						><i class="fas fa-chevron-down fa-4x"></i
+					></a>
+				</section>
+				<!-- Events section -->
+				<section
+					id="page4"
+					class="hero is-light is-fullheight is-bold has-text-centered"
+				>
+					<a href="#page3"><i class="fas fa-chevron-up fa-4x"></i></a>
+					<div class="hero-body">
+						<div class="container">
+							<h2 class="title">Events</h2>
+							<div id="restaurants"></div>
+						</div>
 					</div>
-				</div>
-			</section>
+				</section>
+			</div>
 		</main>
 		<script
 			src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
