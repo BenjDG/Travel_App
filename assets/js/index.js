@@ -1,5 +1,5 @@
 //global variables
-var $weather = [];
+var weather = [];
 var currentCity;
 
 //input section
@@ -11,7 +11,6 @@ $('#input-button').on('click', function (event) {
     getCurrentWeatherData(inputCity);
 
     currentCity = inputCity;
-    
 });
 
 
@@ -38,7 +37,7 @@ function getCurrentWeatherData(city) {
 
 function getWeatherForecast(lon, lat) {
     var queryURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=current,minutely,hourly,alerts&appid=16e2a29d08bf4766fcdb6563c3920b3d";
-    $weather = [];
+    weather = [];
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -46,15 +45,9 @@ function getWeatherForecast(lon, lat) {
         .then(function (res) {
             console.log(res);
             // 7-day forecast
-
             $('#weather').empty();
-            
-
             $('#city-name').empty();
             $('#city-name').html(currentCity);
-
-
-
             for (var i = 0; i < 7; i++) {
                
                 dayObject = {
@@ -65,43 +58,47 @@ function getWeatherForecast(lon, lat) {
                     desc: res.daily[i].weather[0].description,
                     image: 'http://openweathermap.org/img/wn/' + res.daily[i].weather[0].icon + '@2x.png'
                 }
-
-
                 //console.log(dayObject);
-                $weather.push(dayObject);
-
-
+                weather.push(dayObject);
             }
-
         })
         .then(function () {
             window.location = "#page2";
+        })
+        .then(function() {
+            console.log(weather[0]);
+            renderWeather(weather[0]);
         });
-        console.log($weather);
+        
+       // console.log(weather);
+        //console.log(weather[0]);
+
+        //renderWeather(weather[0]);
 };
 
 function toF(k) {
     var f = (k - 273.15) * 9 / 5 + 32;
     return f.toFixed();
 }
+
 //renderWeather($weather[0]);
 function renderWeather(day) {
 
-    console.log(day);
+    console.dir(day);
     $divParent = $('<div>').attr('class', 'item-' + 'number');
     //console.log($divParent);
     $date = $('<div>').html();
-    $highTemp = $('<div>').html(toF(res.daily[i].temp.max) + "&#8457");
-    $lowTemp = $('<div>').html(toF(res.daily[i].temp.min) + "&#8457");
-    $description = $('<div>').html(res.daily[i].weather[0].description);
-    $image = $('<img>').attr('src', 'http://openweathermap.org/img/wn/' + res.daily[i].weather[0].icon + '@2x.png');
-    $divParent.append($date, $highTemp, $lowTemp, $description, $image);
-    //make cards
-    $cardDiv = $('<div>').attr('class', 'card');
-    $cardContent = $('<div>').attr('class', 'card-content');
-    $cardContent.append($divParent);
-    $cardDiv.append($cardContent);
-    $('#weather').append($cardDiv);
+    // $highTemp = $('<div>').html(toF(res.daily[i].temp.max) + "&#8457");
+    // $lowTemp = $('<div>').html(toF(res.daily[i].temp.min) + "&#8457");
+    // $description = $('<div>').html(res.daily[i].weather[0].description);
+    // $image = $('<img>').attr('src', 'http://openweathermap.org/img/wn/' + res.daily[i].weather[0].icon + '@2x.png');
+    // $divParent.append($date, $highTemp, $lowTemp, $description, $image);
+    // //make cards
+    // $cardDiv = $('<div>').attr('class', 'card');
+    // $cardContent = $('<div>').attr('class', 'card-content');
+    // $cardContent.append($divParent);
+    // $cardDiv.append($cardContent);
+    // $('#weather').append($cardDiv);
 
 }
 
