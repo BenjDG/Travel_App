@@ -1,7 +1,15 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body{
   font-family: 'Cinzel', serif;
   display: flex;
   flex-direction: column;
+}
+
+main{
+  margin: 0 !important;
 }
 
 h1{
@@ -30,8 +38,40 @@ a:hover {
   transform: scale(1.5, 1.5);
 }
 
+.forecast-title {
+  margin-bottom: 4rem;
+}
 
-  #map {
-    height: 400px;
-    width: 100%;
-  }
+.card-content {
+  padding: 5rem;
+}
+
+.item{
+  width: 15rem;
+}
+
+#weather{
+  
+  display: flex;
+  justify-content: center;
+}
+
+.arrow-padding{
+  margin: 3rem;
+}
+
+.left-arrow, .right-arrow {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  
+}
+
+#city-name {
+  font-size: 4rem;
+}
+
+#map {
+  height: 400px;
+  width: 100%;
+}
