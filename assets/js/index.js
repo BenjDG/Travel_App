@@ -34,7 +34,7 @@ function getCurrentWeatherData(city) {
             var lon = res.coord.lon;
             var lat = res.coord.lat;
             getWeatherForecast(lon, lat);
-            initMap(lat, lon);
+            initAutocomplete(lat, lon);
         })
 
     //renderWeatherData(response);
@@ -160,32 +160,80 @@ function changeWeatherDayDecrement() {
 //map section
 //var map;
 
-function initMap(lat, lng) {
+function initAutocomplete(lat, lng) {
 
     if(lat && lng) {
     //console.log(lat);
-    var uluru = { lat: lat, lng: lng };
-    // The map, centered at Uluru
+    var newmark = { lat: lat, lng: lng };
+    // The map, centered at the city that is searched for
     var map = new google.maps.Map(document.getElementById("map"), {
         zoom: 7,
-        center: uluru,
+        center: newmark,
     });
-    // The marker, positioned at Uluru
+    var input = document.getElementById("pac-input");
+    var searchBox = new google.maps.places.SearchBox(input);
+    map.addListener("bounds_changed", () => {
+        searchBox.setBounds(map.getBounds());
+    });
+
+    var markers = [];
+    searchBox.addListener("places_changed", () => {
+        var places = searchBox.getPlaces();
+        if(places.length == 0){
+            return;
+        }
+        markers.forEach((marker) => {
+           marker.setMap(null); 
+        });
+        markers = [];
+        const bounds = new google.maps.LatLngBounds();
+    places.forEach((place) => {
+      if (!place.geometry) {
+        console.log("Returned place contains no geometry");
+        return;
+      }
+      const icon = {
+        url: place.icon,
+        size: new google.maps.Size(71, 71),
+        origin: new google.maps.Point(0, 0),
+        anchor: new google.maps.Point(17, 34),
+        scaledSize: new google.maps.Size(25, 25),
+      };
+      // Create a marker for each place.
+      markers.push(
+        new google.maps.Marker({
+          map,
+          icon,
+          title: place.name,
+          position: place.geometry.location,
+        })
+      );
+
+      if (place.geometry.viewport) {
+        // Only geocodes have viewport.
+        bounds.union(place.geometry.viewport);
+      } else {
+        bounds.extend(place.geometry.location);
+      }
+    });
+    map.fitBounds(bounds);
+    })
+   
+    // The marker is positioned at the city we searched for
     var marker = new google.maps.Marker({
-        position: uluru,
+        position: newmark,
         map: map,
+       
     });
+    // This added a Event Listener to open the info window
+  
 } else {
     return;
 }
 
 
 
-    // $('#map').empty();
-    //for(var i = 0; i > 7; i++){
-    //  $divParent = $("<div>");
-    //  $("#map").append($divParent);
-    //}
+   
 }
 
 
