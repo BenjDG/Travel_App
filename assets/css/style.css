@@ -1,0 +1,130 @@
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: "Cinzel", serif;
+	display: flex;
+	flex-direction: column;
+}
+
+main {
+	margin: 0 !important;
+}
+
+h1 {
+	font-size: 7rem !important;
+	font-family: "Cinzel", serif;
+	font-weight: 400 !important;
+	color: white !important;
+	margin-bottom: 0 !important;
+}
+
+.field {
+	position: relative;
+}
+
+#input-button {
+	position: absolute !important;
+	right: 0;
+	top: 0;
+}
+
+a {
+	color: inherit;
+}
+
+a:hover {
+	transform: scale(1.5, 1.5);
+}
+
+.forecast-title {
+	margin-bottom: 4rem;
+}
+
+.card-content {
+	padding: 5rem;
+}
+
+.item {
+	width: 15rem;
+}
+
+#weather {
+	display: flex;
+	justify-content: center;
+}
+
+.arrow-padding {
+	margin: 3rem;
+}
+
+.left-arrow,
+.right-arrow {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+#city-name {
+	font-size: 4rem;
+}
+
+#map {
+	height: 400px;
+	width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+	h1 {
+		font-size: 4rem !important;
+	}
+
+	#city-name {
+		font-size: 2rem !important;
+		padding-bottom: 0rem;
+	}
+
+	.arrow-padding {
+		margin: 1rem;
+	}
+
+	.forecast-title {
+		margin-bottom: 4rem;
+	}
+
+	.card {
+		margin-bottom: 4rem;
+	}
+
+	.card-content {
+		padding: 2rem;
+	}
+
+	.item {
+		width: 8rem;
+	}
+}
+
+@media screen and (max-width: 410px) {
+	.arrow-padding {
+		margin: 0.5rem;
+	}
+
+	.forecast-title {
+		margin-bottom: 7rem;
+	}
+	
+	.card,
+	.left-arrow,
+	.right-arrow {
+		margin-bottom: 5rem;
+	}
+	.card-content {
+		padding: 1rem;
+	}
+}
+
+footer {
+  text-align: center;
+}

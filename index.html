@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Travel Planner</title>
+		<link
+			rel="shortcut icon"
+			href="./assets/images/favicon.ico"
+			type="image/x-icon"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.1/css/bulma.min.css"
+			integrity="sha512-ZRv40llEogRmoWgZwnsqke3HNzJ0kiI0+pcMgiz2bxO6Ew1DVBtWjVn0qjrXdT3+u+pSN36gLgmJiiQ3cQtyzA=="
+			crossorigin="anonymous"
+		/>
+		<script
+			src="https://kit.fontawesome.com/3ea7a994a9.js"
+			crossorigin="anonymous"
+		></script>
+		<link rel="stylesheet" href="./assets/css/style.css" />
+	</head>
+	<body>
+		
+				<main class="container.is-widescreen content">
+					<section
+						id="page1"
+						class="hero is-dark is-fullheight is-bold"
+					>
+						<h1 class="has-text-centered mt-6 pt-6">
+							Travel Planner
+						</h1>
+						<div class="hero-body">
+							<div class="container">
+								<form class="field">
+									<input
+										id="input-city-name"
+										class="input is-rounded is-large has-text-centered"
+										type="text"
+										placeholder="Enter a city name"
+										name="city"
+									/>
+									<button
+										id="input-button"
+										class="button is-rounded is-large"
+									>
+										<i class="fas fa-search"></i>
+									</button>
+								</form>
+							</div>
+						</div>
+					</section>
+					<!-- main body section -->
+					<div id="hide-it" class="is-hidden">
+						<!-- weather section -->
+						<section
+							id="page2"
+							class="hero is-light is-fullheight is-bold has-text-centered"
+						>
+							<a href="#page1"
+								><i class="fas fa-chevron-up fa-4x"></i
+							></a>
+							<div class="hero-body">
+								<div class="container">
+									<div class="forecast-title">
+										<h2 id="city-name" class="title"></h2>
+										<h2 class="title">Weather Forecast</h2>
+									</div>
+									<div id="weather" class="is-flex"></div>
+								</div>
+							</div>
+							<a href="#page3"
+								><i class="fas fa-chevron-down fa-4x"></i
+							></a>
+						</section>
+
+						<!-- map section -->
+						<section
+							id="page3"
+							class="hero is-dark is-fullheight is-bold has-text-centered"
+						>
+							<a href="#page2"
+								><i class="fas fa-chevron-up fa-4x"></i
+							></a>
+							<div class="hero-body">
+								<div class="container">
+									<h2 class="title">Map</h2>
+									<div id="map"></div>
+								</div>
+							</div>
+							<a href="#page4"
+								><i class="fas fa-chevron-down fa-4x"></i
+							></a>
+						</section>
+						<!-- Events section -->
+						<section
+							id="page4"
+							class="hero is-light is-fullheight is-bold has-text-centered"
+						>
+							<a href="#page3"
+								><i class="fas fa-chevron-up fa-4x"></i
+							></a>
+							<div class="hero-body">
+								<div class="container">
+									<h2 class="title">Events</h2>
+									<div id="restaurants"></div>
+								</div>
+							</div>
+						</section>
+					</div>
+ feature/mobileView
+				</main>
+		
+
+
+				</section>
+			</div>
+		</main>
+		<footer><h3>Copyright © 2020 The Travel Bugs</h3></footer>
+ development
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+			integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+			crossorigin="anonymous"
+		></script>
+
+		<!-- maps scripts -->
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+		<script
+			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_S1uoSa96ZjyPEwW3mvugcoqrGKhW4vA&callback=initMap&libraries=&v=weekly"
+			defer
+		></script>
+		<!-- day.js framework -->
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.9.3/dayjs.min.js"
+			integrity="sha512-u7elBfdMr+7LhU4rvUk3IM28QZDKTyUxba4Nx2IJ1W9cj4shfRSPq7EZXD2ULD9cBoizw2FQyeR6YBog6LcnHg=="
+			crossorigin="anonymous"
+		></script>
+		<script src="./assets/js/index.js"></script>
+	</body>
+</html>
