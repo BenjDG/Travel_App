@@ -10,7 +10,6 @@ $('#input-button').on('click', function (event) {
     $('input').val("");
     //console.log(inputCity);
     getCurrentWeatherData(inputCity);
-
     Eventlocator(inputCity);
     
 
