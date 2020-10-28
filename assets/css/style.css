@@ -1,37 +1,202 @@
-body{
-  font-family: 'Cinzel', serif;
-  display: flex;
-  flex-direction: column;
+html {
+	scroll-behavior: smooth;
 }
 
-h1{
-  font-size: 7rem !important;
-  font-family: 'Cinzel', serif;
-  font-weight: 400 !important;
-  color: white !important;
-  margin-bottom: 0 !important;
+body {
+	font-family: "Cinzel", serif;
+	display: flex;
+	flex-direction: column;
+}
+
+main {
+	margin: 0 !important;
+}
+
+h1 {
+	font-size: 7rem !important;
+	font-family: "Cinzel", serif;
+	font-weight: 400 !important;
+	color: white !important;
+	margin-bottom: 0 !important;
 }
 
 .field {
-  position: relative;
+	position: relative;
 }
 
 #input-button {
-  position: absolute !important;
-  right:0;
-  top: 0;
+	position: absolute !important;
+	right: 0;
+	top: 0;
 }
 
-a{
-  color: inherit;
+a {
+	color: inherit;
 }
 
 a:hover {
-  transform: scale(1.5, 1.5);
+	transform: scale(1.5, 1.5);
 }
 
+.forecast-title {
+	margin-bottom: 4rem;
+}
 
-  #map {
-    height: 400px;
-    width: 100%;
-  }
+.card-content {
+	padding: 5rem;
+}
+
+.item {
+	width: 15rem;
+}
+
+#weather {
+	display: flex;
+	justify-content: center;
+}
+
+.arrow-padding {
+	margin: 3rem;
+}
+
+.left-arrow,
+.right-arrow {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+#city-name {
+	font-size: 4rem;
+}
+
+#map {
+	height: 400px;
+	width: 100%;
+}
+
+#description {
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+#infowindow-content .title {
+  font-weight: bold;
+}
+
+#infowindow-content {
+  display: none;
+}
+
+#map #infowindow-content {
+  display: inline;
+}
+
+.pac-card {
+  margin: 10px 10px 0 0;
+  border-radius: 2px 0 0 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  background-color: #fff;
+  font-family: Roboto;
+}
+
+#pac-container {
+  padding-bottom: 12px;
+  margin-right: 12px;
+}
+
+.pac-controls {
+  display: inline-block;
+  padding: 5px 11px;
+}
+
+.pac-controls label {
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: 300;
+}
+
+#pac-input {
+  background-color: #fff;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 12px;
+  padding: 0 11px 0 13px;
+  text-overflow: ellipsis;
+  width: 400px;
+}
+
+#pac-input:focus {
+  border-color: #4d90fe;
+}
+
+#title {
+  color: #fff;
+  background-color: #4d90fe;
+  font-size: 25px;
+  font-weight: 500;
+  padding: 6px 12px;
+}
+
+#target {
+  width: 345px;
+}
+
+@media screen and (max-width: 768px) {
+	h1 {
+		font-size: 4rem !important;
+	}
+
+	#city-name {
+		font-size: 2rem !important;
+		padding-bottom: 0rem;
+	}
+
+	.arrow-padding {
+		margin: 1rem;
+	}
+
+	.forecast-title {
+		margin-bottom: 4rem;
+	}
+
+	.card {
+		margin-bottom: 4rem;
+	}
+
+	.card-content {
+		padding: 2rem;
+	}
+
+	.item {
+		width: 8rem;
+	}
+}
+
+@media screen and (max-width: 410px) {
+	.arrow-padding {
+		margin: 0.5rem;
+	}
+
+	.forecast-title {
+		margin-bottom: 7rem;
+	}
+	
+	.card,
+	.left-arrow,
+	.right-arrow {
+		margin-bottom: 5rem;
+	}
+	.card-content {
+		padding: 1rem;
+	}
+}
+
+footer {
+  text-align: center;
+}
