@@ -11,7 +11,7 @@ $('#input-button').on('click', function (event) {
     //console.log(inputCity);
     getCurrentWeatherData(inputCity);
     Eventlocator(inputCity);
-    initMap();
+    
 
 
     currentCity = inputCity;
