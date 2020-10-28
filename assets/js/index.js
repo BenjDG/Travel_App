@@ -8,6 +8,7 @@ $('#input-button').on('click', function (event) {
     $('input').val("");
     console.log(inputCity);
     getCurrentWeatherData(inputCity);
+    Eventlocator(inputCity);
     initMap();
 
 
@@ -105,6 +106,111 @@ function initMap() {
 
 
 
-//resaurant section
+//Event section
 
 
+function Eventlocator (city) {
+    var currentEvents= $("#currentevents");
+    currentEvents.empty();
+    //var url="https://app.ticketmaster.com/discovery/v2/events.json?apikey=OGZjYNA1sXrrIMpAXLvOgsHZz0jNjF4E&city="+city;
+ 
+    $.ajax({
+     type:"GET",
+     url:"https://app.ticketmaster.com/discovery/v2/events.json?apikey=OGZjYNA1sXrrIMpAXLvOgsHZz0jNjF4E&city="+city,
+     async:true,
+     //dataType: "json",
+     success: function(json)
+     {
+        var responseEvents = json._embedded.events;  //Array of Events
+        //While Looping through events
+        //Check the name to see if it already exists
+        //If it doesn't exist...add to array.
+        //If it does...we need to modify the event with the extra dates?
+
+        //We will put in events that are cleaned up in here.
+        var validatedEvents = [];
+
+        for (var i = 0; i < responseEvents.length; i++) {
+            //Our cleaned up event will go here.
+            var validatedEvent = {
+                name: "",
+                url: "",
+                image: "",
+                dates: []
+            };
+
+            validatedEvent.name = responseEvents[i].name;
+            validatedEvent.url = responseEvents[i].url;
+
+            //Get Image we want
+            var IMAGE_HEIGHT = 360;
+            var IMAGE_RATIO = "16_9"
+            for (var j = 0; j < responseEvents[i].images.length; j++) {
+                if (responseEvents[i].images[j].ratio === IMAGE_RATIO && responseEvents[i].images[j].height === IMAGE_HEIGHT) {
+                    //Set Image
+                    validatedEvent.image = responseEvents[i].images[j].url;
+                    //STOP LOOP EARLY IF FOUND
+                    j = responseEvents[i].images.length;
+                }
+            }
+
+            //Get The Date for this event
+            //New Event Object to push into array
+            var eventDate = {
+                date: "",
+                time: "",
+                timeZone: ""
+            }
+            eventDate.date = responseEvents[i].dates.start.localDate;
+            eventDate.time = responseEvents[i].dates.start.localTime;
+            eventDate.timeZone = responseEvents[i].dates.timezone;
+            validatedEvent.dates.push(eventDate);
+            
+            //Before we push the data into the array...we need to see if it already exists.
+
+            validatedEvents.forEach(function(event) {
+                if (event.name === validatedEvent.name) {
+                    event.dates.push(eventDate);
+                }
+            });
+
+            var eventExists = false;
+            for (var k = 0; k < validatedEvents.length; k++) {
+                if (validatedEvents[k].name === validatedEvent.name) {
+                    eventExists = true;
+                }
+            }
+
+            if (!eventExists) {
+                validatedEvents.push(validatedEvent);
+            }
+        }
+        console.log("Validated Events ", validatedEvents);
+
+                  
+                  for (var i = 0; i < validatedEvents.length; i++) {
+                   // console.log(json._embedded.events[i].startDateTime);
+        
+                    // $("<p>").text(validatedEvents[i].name).appendTo(currentEvents)
+                    var newDiv = $("<div>");
+                    var newAnchor = $("<a>").attr("href", validatedEvents[i].url).attr("target", "_blank").text(validatedEvents[i].name);
+                    newDiv.append(newAnchor);
+                    currentEvents.append(newDiv);
+                    
+                   // $("<p>").text(json._embedded.events[i].startDateTime).appendTo(currentEvents)
+                    $("<img>").attr("src", validatedEvents[i].image).attr("alt", `${validatedEvents[i].name} Image`).appendTo(currentEvents);
+                  }      
+              },
+                 error: function(xhr, status, err) {
+                 console.log(err);
+
+                 //.then(function (res) {
+                   //console.log(res);
+               
+              }
+
+   });
+
+}
+
+   
