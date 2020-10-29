@@ -187,13 +187,13 @@ function initAutocomplete(lat, lng) {
            marker.setMap(null); 
         });
         markers = [];
-        const bounds = new google.maps.LatLngBounds();
+        var bounds = new google.maps.LatLngBounds();
     places.forEach((place) => {
       if (!place.geometry) {
         console.log("Returned place contains no geometry");
         return;
       }
-      const icon = {
+        var icon = {
         url: place.icon,
         size: new google.maps.Size(71, 71),
         origin: new google.maps.Point(0, 0),
