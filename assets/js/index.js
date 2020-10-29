@@ -54,6 +54,7 @@ function getWeatherForecast(lon, lat) {
             $('#weather').empty();
             $('#city-name').empty();
             $('#city-name').html(currentCity);
+            $('#city-name-events').html(currentCity);
             for (var i = 0; i < 7; i++) {
                
                 dayObject = {
